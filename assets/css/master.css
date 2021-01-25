@@ -7,3 +7,78 @@
 /* body{
   margin: 0px;
 } */
+body{
+  background-color: lightblue;
+}
+header, main, footer{
+  margin: 30px 20%;
+}
+header h1{
+  font-weight: 900;
+  font-size: 60px;
+  text-align: center;
+}
+header{
+  background-color: grey;
+}
+main{
+
+}
+.container{
+  display: inline-block;
+  position: relative;
+  margin: 2.3%;
+  width: 20%;
+  height: 250px;
+}
+.card_fix{
+  background-color: white;
+  border-radius: 25px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.position_name{
+  background-size: 100%;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  color: blue;
+  font-size: 30px;
+  font-weight: 900;
+}
+/* all card */
+.pattern{
+  background-image: url(../img/pattern.png);
+  z-index: 2;
+  background-position: cover;
+  background-size: 300px;
+
+}
+
+.balloon{
+  background-image: url(../img/balloon.png);
+  z-index: 1;
+  position: absolute;
+  background-size: 200px;
+  background-position: top;
+  background-repeat: no-repeat;
+
+
+}
+.balloon{
+  background-image: url(../img/balloon.png);
+  z-index: 1;
+
+}
+
+/* all card */
+
+.container:hover .pattern{
+  z-index: 0;
+}
+
+footer h2{
+  text-align: center;
+}
