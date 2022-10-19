@@ -75,27 +75,36 @@ document.getElementById("cards").innerHTML = res
 
 function selectCard(card){
     card = JSON.parse(decodeURIComponent(card))
-    console.log(card);
-    debugger
     if (!firstCard) {
         firstCard = card
         document.getElementsByClassName(`${card.name}${card.id}`)[0].classList.add('is-flipped')
     }else{
-        if (firstCard.Id != card.id) {
+        if (firstCard.id != card.id) {
             if(firstCard.typeId == card.typeId){
-                
                 var els = document.getElementsByClassName(`${card.name}`)
                 Array.prototype.forEach.call(els, function(el) {
                     el.classList.add("active")
                 });
+                document.getElementsByClassName(`${card.name}${card.id}`)[0].classList.add('is-flipped')
+                firstCard = null
+            }else{
+                document.getElementsByClassName(`${card.name}${card.id}`)[0].classList.add('is-flipped')
+                setTimeout(() =>{
+                    document.getElementsByClassName(`${card.name}${card.id}`)[0].classList.remove('is-flipped')
+                    document.getElementsByClassName(`${firstCard.name}${firstCard.id}`)[0].classList.remove('is-flipped')
+                    firstCard = null
+                }, 1000)
             }
+        }else{ 
+            document.getElementsByClassName(`${card.name}${card.id}`)[0].classList.remove('is-flipped')
+            firstCard = null
         }
-        firstCard.typeId = null
-        firstCard.Id = null
-        document.getElementsByClassName(`${card.name}${card.id}`)[0].classList.remove('is-flipped')
     }
 }
 
+function timeout(){
+
+}
 function shuffle(array) {
     let currentIndex = array.length,  randomIndex;
   
