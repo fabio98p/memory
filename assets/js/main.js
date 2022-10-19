@@ -50,7 +50,7 @@ cardsType.forEach( card => {
     cards.push(new Card(counter++, card.id, card.link, card.name))
 })
 counter = 0 
-// shuffle(cards)
+shuffle(cards)
 cards.forEach(card => {
     // <div class="container ${card.name}" onclick="selectCard('${encodeURIComponent(JSON.stringify(card))}')">
     //     <div class="card_fix">
@@ -68,43 +68,56 @@ cards.forEach(card => {
             <div class="card__face card__face--back">${card.name}</div>
         </div>
     </div>
-
   `
 });
 document.getElementById("cards").innerHTML = res
 
 function selectCard(card){
     card = JSON.parse(decodeURIComponent(card))
-    if (!firstCard) {
-        firstCard = card
-        document.getElementsByClassName(`${card.name}${card.id}`)[0].classList.add('is-flipped')
-    }else{
-        if (firstCard.id != card.id) {
-            if(firstCard.typeId == card.typeId){
-                var els = document.getElementsByClassName(`${card.name}`)
-                Array.prototype.forEach.call(els, function(el) {
-                    el.classList.add("active")
-                });
-                document.getElementsByClassName(`${card.name}${card.id}`)[0].classList.add('is-flipped')
-                firstCard = null
-            }else{
-                document.getElementsByClassName(`${card.name}${card.id}`)[0].classList.add('is-flipped')
-                setTimeout(() =>{
-                    document.getElementsByClassName(`${card.name}${card.id}`)[0].classList.remove('is-flipped')
-                    document.getElementsByClassName(`${firstCard.name}${firstCard.id}`)[0].classList.remove('is-flipped')
+    if (!hasClass(`${card.name}${card.id}`, "active")) {
+        if (!firstCard) {//flip the first card and set firstCard
+            firstCard = card
+            addClassByClass(`${card.name}${card.id}`, "is-flipped")
+        }else{//if exsist firstCard
+            if (firstCard.id != card.id) {//if is not the same card
+                if(firstCard.typeId == card.typeId){//if is the correct card
+                    addClassByClass(card.name, "active")
+                    addClassByClass(`${card.name}${card.id}`, "is-flipped")
                     firstCard = null
-                }, 1000)
+                }else{// if is not the corret card
+                    addClassByClass(`${card.name}${card.id}`, "is-flipped")
+                    setTimeout(() =>{
+                        removeClassByClass(`${card.name}${card.id}`, "is-flipped")
+                        removeClassByClass(`${firstCard.name}${firstCard.id}`, "is-flipped")
+                        firstCard = null
+                    }, 1000)
+                }
+            }else{ //if is the same card
+                document.getElementsByClassName(`${card.name}${card.id}`)[0].classList.remove('is-flipped')
+                firstCard = null
             }
-        }else{ 
-            document.getElementsByClassName(`${card.name}${card.id}`)[0].classList.remove('is-flipped')
-            firstCard = null
         }
     }
 }
 
-function timeout(){
-
+function addClassByClass(oldClass, newClass){
+    let els = document.getElementsByClassName(`${oldClass}`)
+    Array.prototype.forEach.call(els, function(el) {
+        el.classList.add(`${newClass}`)
+    });
 }
+
+function removeClassByClass(oldClass, newClass){
+    let els = document.getElementsByClassName(`${oldClass}`)
+    Array.prototype.forEach.call(els, function(el) {
+        el.classList.remove(`${newClass}`)
+    });
+}
+
+function hasClass(oldClass, newClass){
+    return document.getElementsByClassName(`${oldClass}`)[0].classList.contains(`${newClass}`)
+}
+
 function shuffle(array) {
     let currentIndex = array.length,  randomIndex;
   
