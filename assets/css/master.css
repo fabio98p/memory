@@ -4,9 +4,6 @@
   padding: 0px;
   border: 0px;
 }
-/* body{
-  margin: 0px;
-} */
 body{
   background-color: lightblue;
 }
@@ -18,100 +15,15 @@ header h1{
   font-size: 60px;
   text-align: center;
 }
-.container{
-  display: inline-block;
-  position: relative;
-  margin: 2.3%;
-  width: 20%;
-  height: 250px;
-}
-.card_fix{
-  background-size: 200px;
-  background-repeat: no-repeat;
-  background-position: top;
-  background-color: white;
-  border-radius: 25px;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-}
-.position_name{
-  background-size: 100%;
-  position: absolute;
-  bottom: 10%;
-  left: 50%;
-  transform: translate(-50%, 0);
-  color: blue;
-  font-size: 30px;
-  font-weight: 900;
-}
-/* all card */
-.pattern{
-  background-image: url(../img/pattern.png);
-  background-color: white;
-  background-position: cover;
-  background-size: 300px;
-  z-index: 2;
-  border-radius: 25px;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-}
-.balloon{
-  background-image: url(../img/balloon.png);
-  z-index: 1;
-}
-.bicycle{
-  background-image: url(../img/bicycle.png);
-  z-index: 1;
-}
-.ship{
-  background-image: url(../img/ship.png);
-  z-index: 1;
-}
-.submarin{
-  background-image: url(../img/submarin.png);
-  z-index: 1;
-}
-.tractor{
-  background-image: url(../img/tractor.png);
-  z-index: 1;
-}
-.tram{
-  background-image: url(../img/tram.png);
-  z-index: 1;
-}
-/* all card */
-
-.container:hover .pattern{
-  z-index: 0;
-}
-
-footer h2{
-  text-align: center;
-}
-
-.active{
-    border: 3px solid blue;
-}
-
-
-
-
-
-
-
-
-
 
 
 
 .scene {
     display: inline-block;
-    width: 200px;
+    margin: 2.3%;
+    width: 20%;
     height: 260px;
   /*   border: 1px solid #CCC; */
-    margin: 40px 0;
     perspective: 600px;
   }
   
@@ -133,20 +45,63 @@ footer h2{
     position: absolute;
     width: 100%;
     height: 100%;
-    line-height: 260px;
     color: white;
     text-align: center;
     font-weight: bold;
     font-size: 40px;
     backface-visibility: hidden;
+    background-color: white;
+    border-radius: 25px;
   }
   
   .card__face--front {
-    background: crimson;
+    background-image: url(../img/pattern.png);
+    background-position: cover;
+    background-size: 300px;
   }
   
   .card__face--back {
-    background: slateblue;
+    /* background: slateblue; */
+    background-size: 200px;
+    background-repeat: no-repeat;
+    background-position: top;
     transform: rotateY(180deg);
   }
+  .card__face--back .name{
+    background-size: 100%;
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    color: blue;
+    font-size: 30px;
+    font-weight: 900;
+  }
   
+  .active{
+    border: 3px solid rgb(88, 251, 0);
+    border-radius: 28px;
+}
+
+  .balloon{
+    background-image: url(../img/balloon.png);
+  }
+  .bicycle{
+    background-image: url(../img/bicycle.png);
+  }
+  .ship{
+    background-image: url(../img/ship.png);
+  }
+  .submarin{
+    background-image: url(../img/submarin.png);
+  }
+  .tractor{
+    background-image: url(../img/tractor.png);
+  }
+  .tram{
+    background-image: url(../img/tram.png);
+  }
+
+  footer h2{
+    text-align: center;
+  }

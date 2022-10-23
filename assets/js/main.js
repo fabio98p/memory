@@ -14,32 +14,32 @@ class Card {
 const cardsType = [
     {
         "id": 1,
-        "link": "baloon.png",
-        "name": "baloon"
+        "link": "balloon",
+        "name": "balloon"
     },
     {
         "id": 2,
-        "link": "bicycle.png",
+        "link": "bicycle",
         "name": "Bicycle"
     },
     {
         "id": 3,
-        "link": "ship.png",
+        "link": "ship",
         "name": "Ship"
     },
     {
         "id": 4,
-        "link": "submarin.png",
+        "link": "submarin",
         "name": "Submarin"
     },
     {
         "id": 5,
-        "link": "tractor.png",
+        "link": "tractor",
         "name": "Tractor"
     },
     {
         "id": 6,
-        "link": "tram.png",
+        "link": "tram",
         "name": "Tram"
     }
 ]
@@ -54,9 +54,9 @@ shuffle(cards)
 cards.forEach(card => {
     // <div class="container ${card.name}" onclick="selectCard('${encodeURIComponent(JSON.stringify(card))}')">
     //     <div class="card_fix">
-    //     <div class="position_name">
-    //         ${card.name}
-    //     </div>
+        //     <div class="position_name">
+        //         ${card.name}
+        //     </div>
     //     </div>
     //     <div class="pattern"></div>
     // </div>
@@ -64,8 +64,10 @@ cards.forEach(card => {
 
     <div class="scene scene--card">
         <div class="card ${card.name} ${card.name}${card.id}" onclick="selectCard('${encodeURIComponent(JSON.stringify(card))}')">
-            <div class="card__face card__face--front">image</div>
-            <div class="card__face card__face--back">${card.name}</div>
+            <div class="card__face card__face--front"></div>
+            <div class="card__face card__face--back ${card.link}">
+                <div class="name">${card.name}</div>
+            </div>
         </div>
     </div>
   `
