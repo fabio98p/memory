@@ -52,16 +52,7 @@ cardsType.forEach(card => {
 counter = 0
 shuffle(cards)
 cards.forEach(card => {
-	// <div class="container ${card.name}" onclick="selectCard('${encodeURIComponent(JSON.stringify(card))}')">
-	//     <div class="card_fix">
-	//     <div class="position_name">
-	//         ${card.name}
-	//     </div>
-	//     </div>
-	//     <div class="pattern"></div>
-	// </div>
 	res = `${res}
-
     <div class="scene scene--card">
         <div class="card ${card.name} ${card.name}${card.id}" onclick="selectCard('${encodeURIComponent(JSON.stringify(card))}')">
             <div class="card__face card__face--front"></div>
