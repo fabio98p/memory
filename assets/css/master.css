@@ -1,107 +1,107 @@
-*{
-  box-sizing: border-box;
-  margin: 0px;
-  padding: 0px;
-  border: 0px;
+* {
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
 }
-body{
-  background-color: lightblue;
+body {
+	background-color: lightblue;
 }
-header, main, footer{
-  margin: 30px 20%;
+header,
+main,
+footer {
+	margin: 30px 20%;
 }
-header h1{
-  font-weight: 900;
-  font-size: 60px;
-  text-align: center;
+header h1 {
+	font-weight: 900;
+	font-size: 60px;
+	text-align: center;
 }
-
-
 
 .scene {
-    display: inline-block;
-    margin: 2.3%;
-    width: 20%;
-    height: 260px;
-  /*   border: 1px solid #CCC; */
-    perspective: 600px;
-  }
-  
-  .card {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    transform-style: preserve-3d;
-    transform-origin: center right;
-    transition: transform 1s;
-  }
-  
-  .card.is-flipped {
-    transform: translateX(-100%) rotateY(-180deg);
-  }
-  
-  .card__face {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    color: white;
-    text-align: center;
-    font-weight: bold;
-    font-size: 40px;
-    backface-visibility: hidden;
-    background-color: white;
-    border-radius: 25px;
-  }
-  
-  .card__face--front {
-    background-image: url(../img/pattern.png);
-    background-position: cover;
-    background-size: 300px;
-  }
-  
-  .card__face--back {
-    /* background: slateblue; */
-    background-size: 200px;
-    background-repeat: no-repeat;
-    background-position: top;
-    transform: rotateY(180deg);
-  }
-  .card__face--back .name{
-    background-size: 100%;
-    position: absolute;
-    bottom: 10%;
-    left: 50%;
-    transform: translate(-50%, 0);
-    color: blue;
-    font-size: 30px;
-    font-weight: 900;
-  }
-  
-  .active{
-    border: 3px solid rgb(88, 251, 0);
-    border-radius: 28px;
+	display: inline-block;
+	margin: 2.3%;
+	width: 20%;
+	height: 260px;
+	/*   border: 1px solid #CCC; */
+	perspective: 600px;
 }
 
-  .balloon{
-    background-image: url(../img/balloon.png);
-  }
-  .bicycle{
-    background-image: url(../img/bicycle.png);
-  }
-  .ship{
-    background-image: url(../img/ship.png);
-  }
-  .submarin{
-    background-image: url(../img/submarin.png);
-  }
-  .tractor{
-    background-image: url(../img/tractor.png);
-  }
-  .tram{
-    background-image: url(../img/tram.png);
-  }
+.card {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	transform-style: preserve-3d;
+	transform-origin: center right;
+	transition: transform 1s;
+}
 
-  footer h2{
-    text-align: center;
-  }
+.card.is-flipped {
+	transform: translateX(-100%) rotateY(-180deg);
+}
+
+.card__face {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	color: white;
+	text-align: center;
+	font-weight: bold;
+	font-size: 40px;
+	backface-visibility: hidden;
+	background-color: white;
+	border-radius: 25px;
+}
+
+.card__face--front {
+	background-image: url(../img/pattern.png);
+	background-position: cover;
+	background-size: 300px;
+}
+
+.card__face--back {
+	/* background: slateblue; */
+	background-size: 200px;
+	background-repeat: no-repeat;
+	background-position: top;
+	transform: rotateY(180deg);
+}
+.card__face--back .name {
+	background-size: 100%;
+	position: absolute;
+	bottom: 10%;
+	left: 50%;
+	transform: translate(-50%, 0);
+	color: blue;
+	font-size: 30px;
+	font-weight: 900;
+}
+
+.active {
+	border: 3px solid rgb(88, 251, 0);
+	border-radius: 28px;
+}
+
+.balloon {
+	background-image: url(../img/balloon.png);
+}
+.bicycle {
+	background-image: url(../img/bicycle.png);
+}
+.ship {
+	background-image: url(../img/ship.png);
+}
+.submarin {
+	background-image: url(../img/submarin.png);
+}
+.tractor {
+	background-image: url(../img/tractor.png);
+}
+.tram {
+	background-image: url(../img/tram.png);
+}
+
+footer h2 {
+	text-align: center;
+}
