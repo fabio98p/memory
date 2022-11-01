@@ -1,15 +1,9 @@
-3. aggiorna la pare di pagina riguardante l'about the project scrivento le info sul progetto e se si vuole strafare anche un immagine del progetto stesso
-4. andare su FrameworkImmageREADNAME.md selezionare i linguaggi/framework usati e inserirli nella parte bild with
-5. se necessario aggiornare anche la parte installazione
-6. eliminare tutte le parti commentate, compresa questa
-
 <a name="readme-top"></a>
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
@@ -88,8 +82,6 @@ Project Link: [https://github.com/fabio98p/memory](https://github.com/fabio98p/m
 [stars-url]: https://github.com/fabio98p/memory/stargazers
 [issues-shield]: https://img.shields.io/github/issues/fabio98p/memory.svg?style=for-the-badge
 [issues-url]: https://github.com/fabio98p/memory/issues
-[license-shield]: https://img.shields.io/github/license/fabio98p/memory.svg?style=for-the-badge
-[license-url]: https://github.com/fabio98p/memory/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/fabio-parisi-ab0297171/
 [github-url]: https://github.com/fabio98p
