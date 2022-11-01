@@ -10,7 +10,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-    <h1>Portfolio Project</h1>
+    <h1>Memory</h1>
 </div>
 
 
