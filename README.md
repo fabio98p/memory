@@ -47,7 +47,8 @@
 
 This is my simple version of Memory game.
 
-I created this project as an assignment given to me at a programming class to learn html and css
+I created this project as an assignment given to me at a programming class to learn html and css.
+
 Only later did I take over the project to matter us the logic to actually make it work using javascript 
 
 
