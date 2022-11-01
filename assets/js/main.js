@@ -1,5 +1,5 @@
 // flip card source https://codepen.io/mondal10/pen/WNNEvjV
-let res = ''
+let htmlCards = ''
 const cards = []
 let firstCard
 
@@ -11,6 +11,7 @@ class Card {
 		this.name = name
 	}
 }
+
 const cardsType = [
 	{
 		id: 1,
@@ -49,10 +50,10 @@ cardsType.forEach(card => {
 	cards.push(new Card(counter++, card.id, card.link, card.name))
 	cards.push(new Card(counter++, card.id, card.link, card.name))
 })
-counter = 0
+
 shuffle(cards)
 cards.forEach(card => {
-	res = `${res}
+	htmlCards = `${htmlCards}
     <div class="scene scene--card">
         <div class="card ${card.name} ${card.name}${card.id}" onclick="selectCard('${encodeURIComponent(JSON.stringify(card))}')">
             <div class="card__face card__face--front"></div>
@@ -63,37 +64,64 @@ cards.forEach(card => {
     </div>
   `
 })
-document.getElementById('cards').innerHTML = res
+document.getElementById('cards').innerHTML = htmlCards
 
+let endGame = false
+let timeCounter = 0
+function timer() {
+	setInterval(() => {
+		if (!endGame) {
+			document.getElementById('time').innerHTML = `Time= ${timeCounter}s`
+			timeCounter++
+		}
+	}, 1000)
+}
+
+let timerIsStarted = false
+let score = 0
+let waitTheAnimation = false
 function selectCard(card) {
-	card = JSON.parse(decodeURIComponent(card))
-	if (!hasClass(`${card.name}${card.id}`, 'active')) {
-		if (!firstCard) {
-			//flip the first card and set firstCard
-			firstCard = card
-			addClassByClass(`${card.name}${card.id}`, 'is-flipped')
-		} else {
-			//if exsist firstCard
-			if (firstCard.id != card.id) {
-				//if is not the same card
-				if (firstCard.typeId == card.typeId) {
-					//if is the correct card
-					addClassByClass(card.name, 'active')
-					addClassByClass(`${card.name}${card.id}`, 'is-flipped')
-					firstCard = null
-				} else {
-					// if is not the corret card
-					addClassByClass(`${card.name}${card.id}`, 'is-flipped')
-					setTimeout(() => {
-						removeClassByClass(`${card.name}${card.id}`, 'is-flipped')
-						removeClassByClass(`${firstCard.name}${firstCard.id}`, 'is-flipped')
-						firstCard = null
-					}, 1000)
-				}
+    if (!waitTheAnimation) {
+        if (!timerIsStarted) {
+            timer()
+            timerIsStarted = true
+        }
+		card = JSON.parse(decodeURIComponent(card))
+		if (!hasClass(`${card.name}${card.id}`, 'active')) {
+			if (!firstCard) {
+				//flip the first card and set firstCard
+				firstCard = card
+				addClassByClass(`${card.name}${card.id}`, 'is-flipped')
 			} else {
-				//if is the same card
-				document.getElementsByClassName(`${card.name}${card.id}`)[0].classList.remove('is-flipped')
-				firstCard = null
+				//if exsist firstCard
+				if (firstCard.id != card.id) {
+					//if is not the same card
+					if (firstCard.typeId == card.typeId) {
+						//if is the correct card
+						addClassByClass(card.name, 'active')
+						addClassByClass(`${card.name}${card.id}`, 'is-flipped')
+						firstCard = null
+						document.getElementById('score').innerHTML = `Score= ${++score}`
+						if (score == 6) {
+							endGame = true
+							document.getElementsByClassName('hide')[0].classList.remove('hide')
+						}
+					} else {
+						// if is not the corret card
+						addClassByClass(`${card.name}${card.id}`, 'is-flipped')
+                        waitTheAnimation = true
+						setTimeout(() => {
+							removeClassByClass(`${card.name}${card.id}`, 'is-flipped')
+							removeClassByClass(`${firstCard.name}${firstCard.id}`, 'is-flipped')
+							firstCard = null
+                            waitTheAnimation= false
+						}, 1000)
+                    }
+				} else {
+					//if is the same card
+					// document.getElementsByClassName(`${card.name}${card.id}`)[0].classList.remove('is-flipped')
+					// firstCard = null
+				}
 			}
 		}
 	}

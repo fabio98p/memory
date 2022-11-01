@@ -4,6 +4,9 @@
 	padding: 0px;
 	border: 0px;
 }
+.hide{
+    display: none;
+}
 body {
 	background-color: lightblue;
 }
@@ -17,13 +20,20 @@ header h1 {
 	font-size: 60px;
 	text-align: center;
 }
+header .hud{
+    font-size: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 50px auto 0 auto;
+}
 
 .scene {
 	display: inline-block;
 	margin: 2.3%;
 	width: 20%;
 	height: 260px;
-	/*   border: 1px solid #CCC; */
 	perspective: 600px;
 }
 
@@ -61,7 +71,6 @@ header h1 {
 }
 
 .card__face--back {
-	/* background: slateblue; */
 	background-size: 200px;
 	background-repeat: no-repeat;
 	background-position: top;
